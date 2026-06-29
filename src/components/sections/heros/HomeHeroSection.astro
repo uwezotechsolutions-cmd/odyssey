@@ -1,40 +1,86 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { Container, Button } from '@components/odyssey-theme';
-import settings from '../../../config/settings.js';
-import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
+import { Container, Button } from "@components/odyssey-theme";
 ---
 
 <Container>
-	<section class="hero-section__section">
-		<div class="hero-section__text">
-				<h1>Welcome to Odyssey</h1>
-				<p>
-					A marketing website theme built with <a
-						href="https://astro.build"
-						target="_blank"
-						rel="noreferrer">Astro</a
-					> and carefully crafted for startups and businesses.
-				</p>
-				<div class="hero-btns__container">
-					<Button href="/theme/get-started" customIcon
-						>Get Started
-            <Fragment slot="icon">
-              <Icon name="ic:baseline-chevron-right"/>
-            </Fragment>
-            </Button
-					>
-					<Button href="/theme/style-guide" unelevated>Style Guide</Button>
-				</div>
-        {settings.enableThemeSwitcher && <ThemeSwitcher client:only/>}
-		</div>
-		<div class="hero-section__image">
-				<picture>
-					<img
-						src="/assets/images/home/classic-hero.jpg"
-						alt="Astro Odyssey"
-						id="home-hero-image"
-					/>
+  <section class="hero-section">
+    <div class="hero-text">
+      <span class="badge">🌍 Global Platform</span>
+
+      <h1>
+        Connect with Jobs, Housing, Businesses and Opportunities Worldwide
+      </h1>
+
+      <p>
+        Uwezo Connect helps people discover jobs, rental homes,
+        trusted businesses, professional services, and opportunities
+        from anywhere in the world.
+      </p>
+
+      <div class="buttons">
+        <Button href="/register">Get Started</Button>
+        <Button href="/explore" unelevated>Explore</Button>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img
+        src="/assets/images/home/hero.png"
+        alt="Uwezo Connect"
+      />
+    </div>
+  </section>
+</Container>
+
+<style>
+.hero-section{
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:3rem;
+min-height:90vh;
+}
+
+.hero-text h1{
+font-size:3rem;
+line-height:1.1;
+}
+
+.hero-text p{
+margin:1.5rem 0;
+font-size:1.1rem;
+}
+
+.badge{
+background:#1db954;
+color:white;
+padding:.4rem .8rem;
+border-radius:20px;
+display:inline-block;
+margin-bottom:1rem;
+}
+
+.buttons{
+display:flex;
+gap:1rem;
+}
+
+.hero-image img{
+width:100%;
+max-width:650px;
+}
+
+@media(max-width:768px){
+.hero-section{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.buttons{
+justify-content:center;
+}
+}
+</style>					/>
 				</picture>
 		</div>
 	</section>
